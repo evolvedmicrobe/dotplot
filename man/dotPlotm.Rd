@@ -4,7 +4,7 @@
 \alias{dotPlotm}
 \title{Create dotplot using base graphics package}
 \usage{
-dotPlotm(seq1, seq2, wsize = 10, wstep = 1, nmatch = 10, ...)
+dotPlotm(seq1, seq2, wsize = 10, wstep = 1, nmatch = -1, ...)
 }
 \arguments{
 \item{seq1}{String of first sequence}
@@ -15,7 +15,7 @@ dotPlotm(seq1, seq2, wsize = 10, wstep = 1, nmatch = 10, ...)
 
 \item{wstep}{Step size for windows (likely should be 1)}
 
-\item{nmatch}{(Number of matches to plot)}
+\item{nmatch}{(Number of matches in window needed for plotting, defaults to wsize if negative)}
 
 \item{...}{Additional parameters for plot (xlab, ylab, main, etc.)}
 }

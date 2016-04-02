@@ -5,12 +5,12 @@
 #' @param seq2 String of second sequence
 #' @param wsize Window size
 #' @param wstep Step size for windows (likely should be 1)
-#' @param nmatch (Number of matches to plot)
+#' @param nmatch (Number of matches in window needed for plotting, defaults to wsize if negative)
 #' @param ... Additional parameters for plot (xlab, ylab, main, etc.)
 #'
 #' @return Prints the plot
 #' @export
-dotPlotm <- function(seq1, seq2, wsize = 10, wstep = 1, nmatch = 10, ...)
+dotPlotm <- function(seq1, seq2, wsize = 10, wstep = 1, nmatch = -1, ...)
 {
   if (length(seq1[1]) > 1)
     stop("seq1 should be provided as a single string")
@@ -21,7 +21,7 @@ dotPlotm <- function(seq1, seq2, wsize = 10, wstep = 1, nmatch = 10, ...)
   if (wstep < 1)
     stop("non allowed value for wstep")
   if (nmatch < 1)
-    stop("non allowed value for nmatch")
+    nmatch = wsize
   if (nmatch > wsize)
     stop("nmatch > wsize is not allowed")
 
@@ -46,11 +46,11 @@ dotPlotm <- function(seq1, seq2, wsize = 10, wstep = 1, nmatch = 10, ...)
 #' @param seq2 String of second sequence
 #' @param wsize Window size
 #' @param wstep Step size for windows (likely should be 1)
-#' @param nmatch (Number of matches to plot)
+#' @param nmatch (Number of matches in window needed for plotting, defaults to wsize if negative)
 #' @return
 #' @export
 #' @useDynLib dotplot
-dotPlotg <- function (seq1, seq2, wsize = 10, wstep = 1, nmatch = 10)
+dotPlotg <- function (seq1, seq2, wsize = 10, wstep = 1, nmatch = -1)
 {
   if (length(seq1[1]) > 1)
     stop("seq1 should be provided as a single string")
@@ -61,9 +61,9 @@ dotPlotg <- function (seq1, seq2, wsize = 10, wstep = 1, nmatch = 10)
   if (wstep < 1)
     stop("non allowed value for wstep")
   if (nmatch < 1)
-    stop("non allowed value for nmatch")
+    nmatch = wsize
   if (nmatch > wsize)
     stop("nmatch > wsize is not allowed")
   xy <- mkDotPlotDataFrame(seq1, seq2, wsize, wstep, nmatch)
-  ggplot2::ggplot(xy, ggplot2::aes(x=x, y=y)) + ggplot2::geom_point()
+  ggplot2::ggplot(xy, ggplot2::aes(x=x, y=y)) + ggplot2::geom_point(shape=15)
 }

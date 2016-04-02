@@ -4,7 +4,7 @@
 \alias{dotPlotg}
 \title{Create dotplot using ggplot, X,Y points with a match will be}
 \usage{
-dotPlotg(seq1, seq2, wsize = 10, wstep = 1, nmatch = 10)
+dotPlotg(seq1, seq2, wsize = 10, wstep = 1, nmatch = -1)
 }
 \arguments{
 \item{seq1}{String of first sequence}
@@ -15,7 +15,7 @@ dotPlotg(seq1, seq2, wsize = 10, wstep = 1, nmatch = 10)
 
 \item{wstep}{Step size for windows (likely should be 1)}
 
-\item{nmatch}{(Number of matches to plot)}
+\item{nmatch}{(Number of matches in window needed for plotting, defaults to wsize if negative)}
 }
 \description{
 Create dotplot using ggplot, X,Y points with a match will be
