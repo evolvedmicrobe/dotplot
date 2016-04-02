@@ -1,0 +1,15 @@
+Package: dotplot
+Type: Package
+Title: Makes dotplots of DNA sequences
+Version: 0.1.0
+Author: Nigel Delaney
+Maintainer: Nigel Delaney  <nigel.delaney@evolvedmicrobe>
+Description: This package creates dot plots of DNA sequences (or other types)
+License: MIT
+LazyData: TRUE
+Imports:
+    Rcpp (>= 0.12.4),
+    ggplot2,
+    grid
+LinkingTo: Rcpp
+RoxygenNote: 5.0.1
