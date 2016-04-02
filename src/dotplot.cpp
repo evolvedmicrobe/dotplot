@@ -83,7 +83,6 @@ DataFrame mkDotPlotDataFrame(std::string seq1, std::string seq2, int wsize, int 
       }
     }
   }
-  Rcout << X.size();
   return DataFrame::create(_["x"] = X,
                            _["y"] = Y);
 }
