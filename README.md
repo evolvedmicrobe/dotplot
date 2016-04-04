@@ -20,11 +20,11 @@ seq1 = "ATGAATACTAGATAGCATAGAGATAGACTATTAGGGTTAGGTTAGGGTTAGGGTGTTAGGGTTAGGGTTAGG
 seq2 = "ATGAATACTAGATAGCATAGAGATAGACTATTAGGGTTAGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTTAGGGTGTTAGGGTTAGGGTTAGGGTTAGGGCCGCACCGAGCGCATACA"
 
 library(dotplot)
-
 # Older Base Graphics Plot
 dotPlotm(seq1, seq2, wsize = 7, xlab="Sequence 1", ylab="Sequence 2", main="Traditional R Graphics")
 
 # Newer ggplot Version
+library(ggplot2)
 dotPlotg(seq1, seq2, wsize=7) + theme_bw() + labs(x="Sequence 1", y = "Sequence 2", title="New ggplot version")
 
 ```
