@@ -32,7 +32,9 @@ NumericMatrix mkDotPlotMatrix(std::string seq1, std::string seq2, int wsize, int
   std::fill(X.begin(), X.end(), 1.0);
   // Brute force, inefficient with overlapping comparisons
   for(int i=0; i < (s1l - wsize); i += wstep) {
+    if( (i / wstep) == 1000) { Rcpp::checkUserInterrupt(); }
     for(int j=0; j < (s2l - wsize); j += wstep) {
+      if( (j / wstep) == 1000) { Rcpp::checkUserInterrupt(); }
       int nm =0;
       for(int k=0; k < wsize; k++) {
         if (seq1[i+k] == seq2[j+k]) nm++;
@@ -72,7 +74,9 @@ DataFrame mkDotPlotDataFrame(std::string seq1, std::string seq2, int wsize, int 
   std::vector<double> Y;
   // Brute force, inefficient with overlapping comparisons
   for(int i=0; i < (s1l - wsize); i += wstep) {
+    if( (i / wstep) == 1000) { Rcpp::checkUserInterrupt(); }
     for(int j=0; j < (s2l - wsize); j += wstep) {
+      if( (j / wstep) == 1000) { Rcpp::checkUserInterrupt(); }
       int nm =0;
       for(int k=0; k < wsize; k++) {
         if (seq1[i+k] == seq2[j+k]) { nm++; }
